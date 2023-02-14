@@ -17,10 +17,10 @@ NFR-03:Test should achieve 10 API calls in total for the 1-minute Steady State d
 NFR-04:90 percent of the times the API is expected to perform within 500 ms
 ###############################################################################################################
 
-Steps used in completing above assignmnent:
+Steps for script creation & execution:
 •Apache JMeter was used as Performance Test Tool for this test.
-•Script was created for the above mentioned API endpoint URL. 
-•The API call (Category_Details) was parameterized for Category IDs given above using “CSV Data Set Config” element in JMeter.
+•The JMeter Script "PTAssignment.jmx" was created for the above mentioned API endpoint URL. 
+•The API call (Category_Details) was parameterized for Category IDs given above using "CategoryID.csv" file with the help of “CSV Data Set Config” element in JMeter.
 •Test assertions are applied by using “Response Assertion” element. Passing/Failing of assertion have two parts. First part instructs JMeter to check the successful response code (i.e. 200) by keeping “Ignore Status” field is unchecked and then in the second part, below two patterns are searched and validated to confirm if we have received correct response, 
   •Parameter Check: Category ID 
   •Text Check: "CanRelist": true
