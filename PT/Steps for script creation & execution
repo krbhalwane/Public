@@ -3,12 +3,12 @@ Performance Testing Assignment:
   •	API: https://api.tmsandbox.co.nz/v1/Categories/6327/Details.json?catalogue=false 
   •	Test Data: (Category ID: 6327, 6328, 6329, 6330, 6331, 6332, 6333, 6334, 6335, 6336)
   •	Test Assertion:
-    o	Check for the Response Status
-    o	On a successful response, validate the response with below criteria:
-      	 Parameter Check: Category ID
-      	Text Check: "CanRelist": true
+    •	Check for the Response Status
+    •	On a successful response, validate the response with below criteria:
+      •	 Parameter Check: Category ID
+      •	Text Check: "CanRelist": true
   •	Print following values in a csv file: Category ID, Name, Path, Promotion ID, Price
-    o	Please print all Promotion IDs and respective Prices per Category ID
+    •	Please print all Promotion IDs and respective Prices per Category ID
 2. Non-Functional Requirements
 NFR #	Description
 NFR-01:	Test should support Vusers (Threads) half the count of Category IDs shared in Test Data
@@ -22,15 +22,15 @@ Steps used in completing above assignmnent:
 •	Script was created for the above mentioned API endpoint URL. 
 •	The API call (Category_Details) was parameterized for Category IDs given above using “CSV Data Set Config” element in JMeter.
 •	Test assertions are applied by using “Response Assertion” element. Passing/Failing of assertion have two parts. First part instructs JMeter to check the successful response code (i.e. 200) by keeping “Ignore Status” field is unchecked and then in the second part, below two patterns are searched and validated to confirm if we have received correct response, 
-    	Parameter Check: Category ID 
-    	Text Check: "CanRelist": true
+    • Parameter Check: Category ID 
+    • Text Check: "CanRelist": true
 •	In order to capture the Category ID, Name, Path, Promotion ID, Price from the response of the API call, “JSON Extractor” element was used.
 •	The above captured values were printed in csv file by using custom code written in “JSR223 PostProcessor” element.
 •	The script was executed for 10 iterations for all Category Ids and it worked as expected.
 •	Then the script was updated with variables to meet the NFRs - ${VUusers}, ${Rampup}, ${SteadyState} in “Thread Group” element and ${TPM} in “Constant Throughput Timer” element, etc. Also these variables are updated as custom properties in User Defined variables so that we can pass/change them as required while running the test command in Non-GUI mode.
 •	The test was executed with 5 Vusers with 5 sec Rampup to achieve total 10 API calss during 1 min steady state duration. Refer below the screenshot of execution done in Non-GUI mode.
 •	Navigate to “<JMeter-Home>\bin” folder in command prompt and execute below command to run the test,
-jmeter -n -t C:\Users\DELL\Desktop\NZ\PT\PTAssignment.jmx -l C:\Users\DELL\Desktop\NZ\PT\results.jtl -e -o C:\Users\DELL\Desktop\NZ\PT\HTML_Report -Jrampup=5 -Jsteadystate=60 -Jvusers=5 -Jtpm=10
+  jmeter -n -t C:\Users\DELL\Desktop\NZ\PT\PTAssignment.jmx -l C:\Users\DELL\Desktop\NZ\PT\results.jtl -e -o C:\Users\DELL\Desktop\NZ\PT\HTML_Report -Jrampup=5 -Jsteadystate=60 -Jvusers=5 -Jtpm=10
 
 Here the path after -t is .jmx file (JMeter script) path, 
 path after -l is .jtl file path, 
