@@ -33,6 +33,6 @@ Steps used in completing above assignmnent:
   jmeter -n -t C:\Users\DELL\Desktop\NZ\PT\PTAssignment.jmx -l C:\Users\DELL\Desktop\NZ\PT\results.jtl -e -o C:\Users\DELL\Desktop\NZ\PT\HTML_Report -Jrampup=5 -Jsteadystate=60 -Jvusers=5 -Jtpm=10
 
 Here the path after -t is .jmx file (JMeter script) path, 
-path after -l is .jtl file path, 
+path after -l is .jtl file path,  
 path after -e -o is path for HTML report to be generated after the test execution.
 names with -J are the custom properties (declared as User Defined Variables in the script) to which we can pass values while running the command. If no values are passed then default values mentioned in User Defined Variables section will be passed during execution.
